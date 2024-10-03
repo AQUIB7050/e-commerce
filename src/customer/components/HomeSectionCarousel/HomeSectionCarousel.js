@@ -1,6 +1,85 @@
+import { useState } from "react";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import { Button } from "@mui/material";
+import { mens_kurta } from "../../../data/mens_kurta";
+
 const HomeSectionCarousel = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
 
-}
+  const slidePrev = () => setActiveIndex(activeIndex - 1);
+  const slideNext = () => setActiveIndex(activeIndex + 1);
 
+  const syncActiveIndex = ({item}) => setActiveIndex(item);
+
+  const responsive = {
+    0: { items: 1 },
+    668: { items: 2.5 },
+    1024: { items: 5.5 },
+  };
+
+  const items = mens_kurta.slice(0,10).map((item) => (
+    <HomeSectionCard product={item} />
+  ));
+
+  return (
+    <div className="">
+      <div className="relative p-5">
+        <AliceCarousel
+          items={items}
+          disableButtonsControls
+          responsive={responsive}
+          disableDotsControls
+          onSlideChanged={syncActiveIndex}
+          activeIndex={activeIndex}
+        />
+        {activeIndex !== items.length - 5 && (
+          <Button
+          variant="contained"
+          className="z-50"
+          onClick={slideNext}
+            sx={{
+              position: "absolute",
+              top: "8rem",
+              right: "0rem",
+              transform: "translateX(50%) rotate(90deg)",
+              bgcolor: "white",
+            }}
+            aria-label="next"
+          >
+            <NavigateBeforeIcon
+              sx={{ transform: "rotate(90deg)", color: "black" }}
+            />
+          </Button>
+
+          
+        )}
+
+        {activeIndex !== 0 && (
+          <Button
+          onClick={slidePrev}
+          variant="contained"
+          className="z-50"
+          sx={{
+            position: "absolute",
+            top: "8rem",
+            left: "0rem",
+            transform: "translateX(-50%) rotate(90deg)",
+            bgcolor: "white",
+          }}
+          aria-label="prev"
+        >
+          <NavigateBeforeIcon
+            sx={{ transform: "rotate(-90deg)", color: "black" }}
+          />
+        </Button>
+      )}
+        
+      </div>
+    </div>
+  );
+};
 
 export default HomeSectionCarousel;
