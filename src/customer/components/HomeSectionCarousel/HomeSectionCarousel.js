@@ -4,9 +4,8 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { Button } from "@mui/material";
-import { mens_kurta } from "../../../data/mens_kurta";
 
-const HomeSectionCarousel = () => {
+const HomeSectionCarousel = ({data, sectionName}) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const slidePrev = () => setActiveIndex(activeIndex - 1);
@@ -20,12 +19,13 @@ const HomeSectionCarousel = () => {
     1024: { items: 5.5 },
   };
 
-  const items = mens_kurta.slice(0,10).map((item) => (
+  const items = data.slice(0,10).map((item) => (
     <HomeSectionCard product={item} />
   ));
 
   return (
-    <div className="">
+    <div className="border">
+      <h2 className="text-2x1 font-extrabold text-gray-800 py-5">{sectionName}</h2>
       <div className="relative p-5">
         <AliceCarousel
           items={items}
