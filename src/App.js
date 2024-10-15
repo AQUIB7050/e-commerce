@@ -1,4 +1,5 @@
 import './App.css';
+import Cart from './customer/components/Cart/Cart';
 import Footer from './customer/components/Footer/Footer';
 import Navigation from './customer/components/Navigation/Navigation';
 import Product from './customer/components/Product/Product';
@@ -12,7 +13,8 @@ function App() {
      <div>
       {/* <HomePage/> */}
       {/* <Product/> */}
-      <ProductDetails/>
+      {/* <ProductDetails/> */}
+      <Cart/>
      </div>
      <div>
       <Footer/>
