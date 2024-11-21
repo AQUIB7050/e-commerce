@@ -13,6 +13,6 @@ export const api = axios.create({
     headers:{
         "Authorization":`Bearer ${jwt}`,
         "Content-Type":"application/json",
-        "Access-Control-Allow-Origin", "https://ecomverse-backend-production-c9e6.up.railway.app"
+        "Access-Control-Allow-Origin":"https://ecomverse-backend-production-c9e6.up.railway.app"
     }
 })
