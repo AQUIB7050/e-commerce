@@ -16,6 +16,7 @@ export const api = axios.create({
         "Content-Type": "application/x-www-form-urlencoded",
         "Access-Control-Allow-Origin": "https://ecomverse-backend-production-c9e6.up.railway.app",
         "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "POST"
         
     }
 })
