@@ -14,7 +14,7 @@ export const api = axios.create({
         "Authorization":`Bearer ${jwt}`,
         "Content-Type":"application/json",
         /*"Content-Type": "application/x-www-form-urlencoded",*/
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "https://ecomverse-backend-production-c9e6.up.railway.app",
         "Access-Control-Allow-Credentials": "true",
         
     }
